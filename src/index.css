@@ -1,0 +1,30 @@
+@import "normalize.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+
+    :root {
+        --primary-color: #03ae85;
+        --secondary-color: #fd6259;
+        --text-color: #000;
+    }
+
+    body {
+        font-family: "Roboto Mono", monospace;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+}
