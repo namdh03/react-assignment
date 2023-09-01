@@ -108,3 +108,31 @@ export const SunIcon = () => (
         </defs>
     </svg>
 );
+
+export const ErrorIcon = () => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+    >
+        <g
+            id="remix-icons/fill/system/error-warning-fill"
+            clipPath="url(#clip0_203_197)"
+        >
+            <g id="Group">
+                <path
+                    id="Vector"
+                    d="M7.99998 14.6667C4.31798 14.6667 1.33331 11.682 1.33331 8.00001C1.33331 4.31801 4.31798 1.33334 7.99998 1.33334C11.682 1.33334 14.6666 4.31801 14.6666 8.00001C14.6666 11.682 11.682 14.6667 7.99998 14.6667ZM7.33331 10V11.3333H8.66665V10H7.33331ZM7.33331 4.66668V8.66668H8.66665V4.66668H7.33331Z"
+                    fill="#C83532"
+                />
+            </g>
+        </g>
+        <defs>
+            <clipPath id="clip0_203_197">
+                <rect width="16" height="16" fill="white" />
+            </clipPath>
+        </defs>
+    </svg>
+);

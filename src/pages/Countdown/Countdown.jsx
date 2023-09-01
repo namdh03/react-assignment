@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
-import Input from "../../components/Input";
-import Button from "../../components/Button";
 import { MoonIcon, SunIcon } from "../../components/Icons";
+import Input from "./Input";
+import Button from "./Button";
 
 const Countdown = () => {
     const [hour, setHour] = useState(0);
@@ -72,7 +72,10 @@ const Countdown = () => {
     }, [active, hour, minute, second]);
 
     return (
-        <div className="flex items-center justify-center w-[100vw] h-[100vh] bg-white dark:bg-[#01131E]">
+        <div
+            id="countdown"
+            className="flex items-center justify-center w-[100vw] h-[100vh] bg-white dark:bg-[#01131E]"
+        >
             <div className="relative px-6 py-[18px] w-[431px] h-[313px] rounded bg-[#F9F9F9] dark:bg-[#011C2C] text-center">
                 <h1 className="text-[--text-color] dark:text-white text-[22px]">
                     TIMER

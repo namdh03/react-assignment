@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 @layer base {
-    @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap");
 
     :root {
         --primary-color: #03ae85;
@@ -12,7 +12,8 @@
         --text-color: #000;
     }
 
-    body {
+    #countdown,
+    #form {
         font-family: "Roboto Mono", monospace;
     }
 
@@ -26,5 +27,13 @@
     /* Firefox */
     input[type="number"] {
         -moz-appearance: textfield;
+    }
+
+    input,
+    select,
+    textarea,
+    button {
+        font-size: inherit;
+        font-family: inherit;
     }
 }
