@@ -25,6 +25,8 @@ const TodoList = () => {
             dispatch(actions.addJob(state.job));
             dispatch(actions.setJob(""));
             inputRef.current.focus();
+        } else {
+            inputRef.current.focus();
         }
     };
 
@@ -53,6 +55,8 @@ const TodoList = () => {
                     status: false,
                 })
             );
+        } else {
+            inputRef.current.focus();
         }
     };
 
