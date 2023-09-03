@@ -2,6 +2,7 @@ import { useStore } from "../../hooks";
 import { actions } from "../../Store";
 import { BinIcon, EditIcon } from "../../components/Icons";
 import { useRef } from "react";
+import Header from "../../components/Header";
 
 // Bài này chủ yếu áp dụng kiến thức học được từ trên mạng
 // của React.Context, useContext và useReducer để thực hành
@@ -61,64 +62,73 @@ const TodoList = () => {
     };
 
     return (
-        <div id="todo" className="flex justify-center h-[100vh]">
-            <div className="w-[700px] p-20 bg-[#fcfcfc]">
-                <h1 className="text-[40px] text-center">MY TO DO LIST</h1>
+        <>
+            <Header></Header>
+            <div id="todo" className="mt-[118px]">
+                <div className="w-[700px] mx-auto p-20 bg-[#fcfcfc]">
+                    <h1 className="text-[40px] text-center">MY TO DO LIST</h1>
 
-                <div className="flex items-center mt-[20px] shadow-[0px_10px_20px_0px_#F0F0F0]">
-                    <input
-                        ref={inputRef}
-                        type="text"
-                        className="w-full px-[20px] py-[16px] rounded-[10px_0px_0px_10px] bg-white outline-none
+                    <div className="flex items-center mt-[20px] shadow-[0px_10px_20px_0px_#F0F0F0]">
+                        <input
+                            ref={inputRef}
+                            type="text"
+                            className="w-full px-[20px] py-[16px] rounded-[10px_0px_0px_10px] bg-white outline-none
                         text-[--text-color] text-xl
                         placeholder:text-[#5A5A5A]"
-                        placeholder="F-Code to do list"
-                        value={state.job}
-                        onChange={handleSetJob}
-                    />
-                    <button
-                        className="flex items-center justify-center w-[94px] h-[57px] leading-[57px] px-[16px] py-[10px]
+                            placeholder="F-Code to do list"
+                            value={state.job}
+                            onChange={handleSetJob}
+                        />
+                        <button
+                            className="flex items-center justify-center w-[94px] h-[57px] leading-[57px] px-[16px] py-[10px]
                         rounded-[0px_10px_10px_0px]
                         text-xl text-white bg-blue-400 hover:opacity-90"
-                        onClick={
-                            state.isEdit.status ? handleUpdateJob : handleAddJob
-                        }
-                    >
-                        {state.isEdit.status ? "Update" : "Add"}
-                    </button>
-                </div>
+                            onClick={
+                                state.isEdit.status
+                                    ? handleUpdateJob
+                                    : handleAddJob
+                            }
+                        >
+                            {state.isEdit.status ? "Update" : "Add"}
+                        </button>
+                    </div>
 
-                {state.jobs.length > 0 && (
-                    <ul className="flex flex-col gap-y-[12px] mt-5 w-full">
-                        {state.jobs.map((job, index) => (
-                            <li
-                                key={index}
-                                className="flex items-center justify-between h-[57px] p-5 border border-solid border-[#D9D9D9]
+                    {state.jobs.length > 0 && (
+                        <ul className="flex flex-col gap-y-[12px] mt-5 w-full">
+                            {state.jobs.map((job, index) => (
+                                <li
+                                    key={index}
+                                    className="flex items-center justify-between h-[57px] p-5 border border-solid border-[#D9D9D9]
                                 bg-white shadow-[0px_10px_20px_0px_rgba(240,240,240,0.25)]"
-                            >
-                                <p className="text-[#5A5A5A] text-xl">{job}</p>
-                                <div className="flex items-center">
-                                    <button
-                                        className="p-[5px] cursor-pointer"
-                                        onClick={() =>
-                                            dispatch(actions.removeJob(index))
-                                        }
-                                    >
-                                        <BinIcon></BinIcon>
-                                    </button>
-                                    <button
-                                        className="p-[5px] cursor-pointer"
-                                        onClick={() => handleEditJob(index)}
-                                    >
-                                        <EditIcon></EditIcon>
-                                    </button>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                )}
+                                >
+                                    <p className="text-[#5A5A5A] text-xl">
+                                        {job}
+                                    </p>
+                                    <div className="flex items-center">
+                                        <button
+                                            className="p-[5px] cursor-pointer"
+                                            onClick={() =>
+                                                dispatch(
+                                                    actions.removeJob(index)
+                                                )
+                                            }
+                                        >
+                                            <BinIcon></BinIcon>
+                                        </button>
+                                        <button
+                                            className="p-[5px] cursor-pointer"
+                                            onClick={() => handleEditJob(index)}
+                                        >
+                                            <EditIcon></EditIcon>
+                                        </button>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 

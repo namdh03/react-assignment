@@ -1,6 +1,5 @@
 const routes = {
-    home: "/",
-    countdown: "/countdown",
+    countdown: "/",
     form: "/form",
     todo: "/todo",
     profile: "/profile",
