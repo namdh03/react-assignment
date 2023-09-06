@@ -4,11 +4,12 @@ import Header from "../../components/Header";
 import { MoonIcon, SunIcon } from "../../components/Icons";
 import Input from "./Input";
 import Button from "./Button";
+import { useInputNumber } from "../../hooks/hooks";
 
 const Countdown = () => {
-    const [hour, setHour] = useState(0);
-    const [minute, setMinute] = useState(0);
-    const [second, setSecond] = useState(0);
+    const [hour, setHour] = useInputNumber(0);
+    const [minute, setMinute] = useInputNumber(0);
+    const [second, setSecond] = useInputNumber(0);
     const [active, setActive] = useState(false);
 
     const [darkMode, setDarkMode] = useState(
@@ -70,17 +71,17 @@ const Countdown = () => {
             // console.log("Stop", id);
             clearInterval(id);
         };
-    }, [active, hour, minute, second]);
+    }, [active, hour, minute, second, setHour, setMinute, setSecond]);
 
     return (
         <>
             <Header dark></Header>
             <div
                 id="countdown"
-                className="flex items-center justify-center w-[100vw] h-[100vh] bg-white dark:bg-[#01131E]"
+                className="flex items-center justify-center w-[100vw] h-[100vh] bg-white transition-all dark:bg-[#01131E]"
             >
-                <div className="relative px-6 py-[18px] w-[431px] h-[313px] rounded bg-[#F9F9F9] dark:bg-[#011C2C] text-center">
-                    <h1 className="text-[--text-color] dark:text-white text-[22px]">
+                <div className="relative px-6 py-[18px] w-[431px] h-[313px] rounded bg-[#F9F9F9] transition-all dark:bg-[#011C2C] text-center">
+                    <h1 className="text-[--text-color] transition-all dark:text-white text-[22px]">
                         TIMER
                     </h1>
 
@@ -128,7 +129,7 @@ const Countdown = () => {
 
                     <Button
                         className="absolute top-0 right-0 flex justify-center items-center min-w-[40px]
-                    px-[0px] rounded-[5px] bg-[#E9E9E9]"
+                        px-[0px] rounded-[5px] bg-[#E9E9E9] transition-all"
                         onClick={handleChangeMode}
                     >
                         {darkMode ? <SunIcon></SunIcon> : <MoonIcon></MoonIcon>}

@@ -24,7 +24,7 @@ const Button = ({
         ${primary ? "!text-white !border-[#03AE85] !bg-[#03AE85]" : ""}
         ${secondary ? "!text-white !border-[#FD6259] !bg-[#FD6259]" : ""}
         px-4
-        text-[#323232] dark:text-white text-lg
+        text-[#323232] dark:text-white text-lg transition-all
         border border-solid border-[#D1D1D1] rounded-[3px] bg-[rgba(234,234,234)]/0
     `;
 

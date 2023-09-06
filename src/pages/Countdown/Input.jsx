@@ -9,12 +9,12 @@ const Input = ({ label, type, name, id, ...props }) => {
                 name={name}
                 id={id}
                 className="px-[27px] w-[110px] h-[59px] border border-solid border-[#DBDBDB] rounded
-                text-[--text-color] text-[45px] text-center bg-white outline-none
+                text-[--text-color] text-[45px] text-center bg-white outline-none transition-all
                 dark:bg-[#011C2C] dark:text-white"
             />
             <label
                 htmlFor={id}
-                className="text-[--text-color] dark:text-white text-xs"
+                className="text-[--text-color] dark:text-white text-xs transition-all"
             >
                 {label}
             </label>

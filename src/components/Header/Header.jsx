@@ -6,7 +6,7 @@ import { FCodeIcon } from "../Icons";
 const Header = ({ dark = false }) => {
     return (
         <header
-            className={`fixed top-0 left-0 z-10 w-full bg-white ${
+            className={`fixed top-0 left-0 z-10 w-full bg-white transition-all ${
                 dark ? "dark:bg-[#01131e]" : ""
             }`}
         >
@@ -30,7 +30,7 @@ const Header = ({ dark = false }) => {
                                 <li>
                                     <Link
                                         to={config.routes.countdown}
-                                        className={`p-4 text-[#170F49] text-lg leading-[1.11111] ${
+                                        className={`p-4 text-[#170F49] text-lg leading-[1.11111] transition-all ${
                                             dark ? "dark:text-white" : ""
                                         }`}
                                     >
@@ -40,7 +40,7 @@ const Header = ({ dark = false }) => {
                                 <li>
                                     <Link
                                         to={config.routes.form}
-                                        className={`p-4 text-[#170F49] text-lg leading-[1.11111] ${
+                                        className={`p-4 text-[#170F49] text-lg leading-[1.11111] transition-all ${
                                             dark ? "dark:text-white" : ""
                                         }`}
                                     >
@@ -50,7 +50,7 @@ const Header = ({ dark = false }) => {
                                 <li>
                                     <Link
                                         to={config.routes.todo}
-                                        className={`p-4 text-[#170F49] text-lg leading-[1.11111] ${
+                                        className={`p-4 text-[#170F49] text-lg leading-[1.11111] transition-all ${
                                             dark ? "dark:text-white" : ""
                                         }`}
                                     >
@@ -60,7 +60,7 @@ const Header = ({ dark = false }) => {
                                 <li>
                                     <Link
                                         to={config.routes.profile}
-                                        className={`p-4 text-[#170F49] text-lg leading-[1.11111] ${
+                                        className={`p-4 text-[#170F49] text-lg leading-[1.11111] transition-all ${
                                             dark ? "dark:text-white" : ""
                                         }`}
                                     >
