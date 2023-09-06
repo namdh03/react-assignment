@@ -40,15 +40,15 @@ const CallAPI = () => {
                 </thead>
                 <tbody>
                     {loading
-                        ? Array(10).fill(
-                              <tr>
-                                  {Array(3).fill(
-                                      <td>
+                        ? [...Array(10)].map((_, index) => (
+                              <tr key={index}>
+                                  {[...Array(3)].map((_, index) => (
+                                      <td key={index}>
                                           <Skeleton height="24px"></Skeleton>
                                       </td>
-                                  )}
+                                  ))}
                               </tr>
-                          )
+                          ))
                         : users.map((user) => (
                               <tr key={user.id}>
                                   <td>{user.id}</td>
