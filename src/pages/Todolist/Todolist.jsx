@@ -93,37 +93,43 @@ const TodoList = () => {
                         </button>
                     </div>
 
-                    {state.jobs.length > 0 && (
+                    {state.jobs?.length > 0 && (
                         <ul className="flex flex-col gap-y-[12px] mt-5 w-full">
-                            {state.jobs.map((job, index) => (
-                                <li
-                                    key={index}
-                                    className="flex items-center justify-between h-[57px] p-5 border border-solid border-[#D9D9D9]
+                            {state.jobs.map((job, index) => {
+                                if (typeof job === "object") return;
+
+                                return (
+                                    <li
+                                        key={index}
+                                        className="flex items-center justify-between h-[57px] p-5 border border-solid border-[#D9D9D9]
                                 bg-white shadow-[0px_10px_20px_0px_rgba(240,240,240,0.25)]"
-                                >
-                                    <p className="text-[#5A5A5A] text-xl">
-                                        {job}
-                                    </p>
-                                    <div className="flex items-center">
-                                        <button
-                                            className="p-[5px] cursor-pointer"
-                                            onClick={() =>
-                                                dispatch(
-                                                    actions.removeJob(index)
-                                                )
-                                            }
-                                        >
-                                            <BinIcon></BinIcon>
-                                        </button>
-                                        <button
-                                            className="p-[5px] cursor-pointer"
-                                            onClick={() => handleEditJob(index)}
-                                        >
-                                            <EditIcon></EditIcon>
-                                        </button>
-                                    </div>
-                                </li>
-                            ))}
+                                    >
+                                        <p className="text-[#5A5A5A] text-xl">
+                                            {job}
+                                        </p>
+                                        <div className="flex items-center">
+                                            <button
+                                                className="p-[5px] cursor-pointer"
+                                                onClick={() =>
+                                                    dispatch(
+                                                        actions.removeJob(index)
+                                                    )
+                                                }
+                                            >
+                                                <BinIcon></BinIcon>
+                                            </button>
+                                            <button
+                                                className="p-[5px] cursor-pointer"
+                                                onClick={() =>
+                                                    handleEditJob(index)
+                                                }
+                                            >
+                                                <EditIcon></EditIcon>
+                                            </button>
+                                        </div>
+                                    </li>
+                                );
+                            })}
                         </ul>
                     )}
                 </div>

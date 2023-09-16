@@ -1,8 +1,18 @@
 import * as CONSTANTS from "./constants";
 
+const getJobs = () => {
+    try {
+        const item = window.localStorage.getItem("jobs");
+        return item ? JSON.parse(item) : [];
+    } catch (error) {
+        console.log(error);
+        return [];
+    }
+};
+
 export const initState = {
     job: "",
-    jobs: JSON.parse(localStorage.getItem("jobs")) ?? [],
+    jobs: getJobs(),
     isEdit: {
         index: -1,
         status: false,
@@ -42,7 +52,7 @@ const reducer = (state, action) => {
 
         case CONSTANTS.UPDATE_JOB: {
             const newJobs = [...state.jobs];
-            newJobs.splice(action.payload.index, 1, action.payload.job);
+            newJobs.splice(action.payload.index, 1, action.payload.job.trim());
             localStorage.setItem("jobs", JSON.stringify(newJobs));
 
             return {
