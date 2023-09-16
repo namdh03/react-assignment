@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import config from "../../config";
-import { FCodeIcon } from "../Icons";
+import config from "@/config";
+import { FCodeIcon } from "@/components/Icons";
 
 const Header = ({ dark = false }) => {
     return (

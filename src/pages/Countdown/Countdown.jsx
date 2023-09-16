@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 
-import Header from "../../components/Header";
-import { MoonIcon, SunIcon } from "../../components/Icons";
+import Header from "@/components/Header";
+import { MoonIcon, SunIcon } from "@/components/Icons";
 import Input from "./Input";
 import Button from "./Button";
-import { useInputNumber } from "../../hooks/hooks";
+import { useInputNumber } from "@/hooks/hooks";
 
 const Countdown = () => {
     const [hour, setHour] = useInputNumber(0);

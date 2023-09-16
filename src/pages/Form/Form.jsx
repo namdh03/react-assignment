@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Input from "./Input";
-import Header from "../../components/Header";
+import Header from "@/components/Header";
 
 const initialFormState = {
     name: "",

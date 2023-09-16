@@ -1,8 +1,8 @@
-import { useStore } from "../../hooks";
-import { actions } from "../../Store";
-import { BinIcon, EditIcon } from "../../components/Icons";
+import { useStore } from "@/hooks";
+import { actions } from "@/Store";
+import { BinIcon, EditIcon } from "@/components/Icons";
 import { useRef } from "react";
-import Header from "../../components/Header";
+import Header from "@/components/Header";
 
 // Bài này chủ yếu áp dụng kiến thức học được từ trên mạng
 // của React.Context, useContext và useReducer để thực hành

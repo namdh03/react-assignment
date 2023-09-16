@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import Header from "../../components/Header";
-import { Skeleton } from "../../components/Loading";
+import Header from "@/components/Header";
+import { Skeleton } from "@/components/Loading";
 
 const CallAPI = () => {
     const [users, setUsers] = useState([]);
