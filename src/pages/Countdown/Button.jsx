@@ -26,6 +26,7 @@ const Button = ({
         px-4
         text-[#323232] dark:text-white text-lg transition-all
         border border-solid border-[#D1D1D1] rounded-[3px] bg-[rgba(234,234,234)]/0
+        hover:opacity-90
     `;
 
     return (

@@ -125,7 +125,7 @@ const Form = () => {
 
     return (
         <>
-            <Header></Header>
+            <Header />
             <div className="flex flex-col items-center mt-[118px]">
                 <h1 className="mb-10 text-[#101920] text-4xl font-bold leading-[0.91667]">
                     K18 Recruitment

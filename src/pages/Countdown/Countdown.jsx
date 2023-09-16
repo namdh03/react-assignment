@@ -4,13 +4,46 @@ import Header from "@/components/Header";
 import { MoonIcon, SunIcon } from "@/components/Icons";
 import Input from "./Input";
 import Button from "./Button";
-import { useInputNumber } from "@/hooks/hooks";
+import { useInputNumber } from "@/hooks";
 
 const Countdown = () => {
     const [hour, setHour] = useInputNumber(0);
     const [minute, setMinute] = useInputNumber(0);
     const [second, setSecond] = useInputNumber(0);
     const [active, setActive] = useState(false);
+
+    const inputs = [
+        {
+            id: 1,
+            label: "Hours",
+            type: "number",
+            name: "hour",
+            htmlId: "hour",
+            value: hour,
+            onChange: (e) => setHour(e.target.value),
+            readOnly: active,
+        },
+        {
+            id: 2,
+            label: "Minutes",
+            type: "number",
+            name: "minute",
+            htmlId: "minute",
+            value: minute,
+            onChange: (e) => setMinute(e.target.value),
+            readOnly: active,
+        },
+        {
+            id: 3,
+            label: "Seconds",
+            type: "number",
+            name: "second",
+            htmlId: "second",
+            value: second,
+            onChange: (e) => setSecond(e.target.value),
+            readOnly: active,
+        },
+    ];
 
     const [darkMode, setDarkMode] = useState(
         localStorage.theme === "dark" ||
@@ -51,19 +84,18 @@ const Countdown = () => {
     }, [darkMode]);
 
     useEffect(() => {
-        let id;
-        if (active) {
-            id = setTimeout(() => {
-                // console.log("Start", id);
-                second === 0
-                    ? minute === 0
-                        ? hour === 0
-                            ? (clearInterval(id), setActive(false))
-                            : (setHour(hour - 1), setMinute(59), setSecond(59))
-                        : (setMinute(minute - 1), setSecond(59))
-                    : setSecond(second - 1);
-            }, 1000);
-        }
+        if (!active) return;
+
+        let id = setTimeout(() => {
+            // console.log("Start", id);
+            second === 0
+                ? minute === 0
+                    ? hour === 0
+                        ? (clearInterval(id), setActive(false))
+                        : (setHour(hour - 1), setMinute(59), setSecond(59))
+                    : (setMinute(minute - 1), setSecond(59))
+                : setSecond(second - 1);
+        }, 1000);
 
         // Cleanup func
         return () => {
@@ -75,7 +107,7 @@ const Countdown = () => {
 
     return (
         <>
-            <Header dark></Header>
+            <Header dark />
             <div
                 id="countdown"
                 className="flex items-center justify-center w-[100vw] h-[100vh] bg-white transition-all dark:bg-[#01131E]"
@@ -86,33 +118,18 @@ const Countdown = () => {
                     </h1>
 
                     <div className="flex justify-center gap-x-[30px] mt-[35px]">
-                        <Input
-                            label="Hours"
-                            type="number"
-                            name="hour"
-                            id="hour"
-                            value={hour}
-                            onChange={(e) => setHour(e.target.value)}
-                            readOnly={active}
-                        />
-                        <Input
-                            label="Minutes"
-                            type="number"
-                            name="minute"
-                            id="minute"
-                            value={minute}
-                            onChange={(e) => setMinute(e.target.value)}
-                            readOnly={active}
-                        />
-                        <Input
-                            label="Seconds"
-                            type="number"
-                            name="second"
-                            id="second"
-                            value={second}
-                            onChange={(e) => setSecond(e.target.value)}
-                            readOnly={active}
-                        />
+                        {inputs.map((input) => (
+                            <Input
+                                key={input.id}
+                                label={input.label}
+                                type={input.type}
+                                name={input.name}
+                                id={input.htmlId}
+                                value={input.value}
+                                onChange={(e) => input.onChange(e)}
+                                readOnly={active}
+                            />
+                        ))}
                     </div>
 
                     <div className="flex justify-center gap-x-[15px] mt-11">
@@ -132,7 +149,7 @@ const Countdown = () => {
                         px-[0px] rounded-[5px] bg-[#E9E9E9] transition-all"
                         onClick={handleChangeMode}
                     >
-                        {darkMode ? <SunIcon></SunIcon> : <MoonIcon></MoonIcon>}
+                        {darkMode ? <SunIcon /> : <MoonIcon />}
                     </Button>
                 </div>
             </div>

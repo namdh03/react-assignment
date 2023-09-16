@@ -14,7 +14,7 @@ const App = () => {
                             key={index}
                             path={route.path}
                             element={<Page />}
-                        ></Route>
+                        />
                     );
                 })}
             </Routes>

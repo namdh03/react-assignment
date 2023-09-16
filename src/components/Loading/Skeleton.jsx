@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 
-const Skeleton = (props) => {
+const Skeleton = ({ width = "100%", height = "100%" }) => {
     return (
         <div
             className="loading-skeleton"
             style={{
-                width: props.width || "100%",
-                height: props.height || "100%",
+                width,
+                height,
             }}
         ></div>
     );

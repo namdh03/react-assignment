@@ -1,2 +1,2 @@
-// eslint-disable-next-line react-refresh/only-export-components
-export * from "./hooks";
+export { default as useStore } from "./useStore";
+export { default as useInputNumber } from "./useInputNumber";

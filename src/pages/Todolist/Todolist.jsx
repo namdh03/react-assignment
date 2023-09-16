@@ -25,10 +25,9 @@ const TodoList = () => {
         if (state.job.length > 0) {
             dispatch(actions.addJob(state.job));
             dispatch(actions.setJob(""));
-            inputRef.current.focus();
-        } else {
-            inputRef.current.focus();
         }
+
+        inputRef.current.focus();
     };
 
     const handleEditJob = (index) => {
@@ -63,7 +62,7 @@ const TodoList = () => {
 
     return (
         <>
-            <Header></Header>
+            <Header />
             <div id="todo" className="mt-[118px]">
                 <div className="w-[700px] mx-auto p-20 bg-[#fcfcfc]">
                     <h1 className="text-[40px] text-center">MY TO DO LIST</h1>
@@ -102,9 +101,9 @@ const TodoList = () => {
                                     <li
                                         key={index}
                                         className="flex items-center justify-between h-[57px] p-5 border border-solid border-[#D9D9D9]
-                                bg-white shadow-[0px_10px_20px_0px_rgba(240,240,240,0.25)]"
+                                    bg-white shadow-[0px_10px_20px_0px_rgba(240,240,240,0.25)]"
                                     >
-                                        <p className="text-[#5A5A5A] text-xl">
+                                        <p className="text-[#5A5A5A] text-xl break-all text-line">
                                             {job}
                                         </p>
                                         <div className="flex items-center">
@@ -116,7 +115,7 @@ const TodoList = () => {
                                                     )
                                                 }
                                             >
-                                                <BinIcon></BinIcon>
+                                                <BinIcon />
                                             </button>
                                             <button
                                                 className="p-[5px] cursor-pointer"
@@ -124,7 +123,7 @@ const TodoList = () => {
                                                     handleEditJob(index)
                                                 }
                                             >
-                                                <EditIcon></EditIcon>
+                                                <EditIcon />
                                             </button>
                                         </div>
                                     </li>

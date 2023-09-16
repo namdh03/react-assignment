@@ -1,13 +1,36 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import config from "@/config";
 import { FCodeIcon } from "@/components/Icons";
 
 const Header = ({ dark = false }) => {
+    const links = [
+        {
+            id: 1,
+            page: config.routes.countdown,
+            title: "Countdown",
+        },
+        {
+            id: 2,
+            page: config.routes.form,
+            title: "Form",
+        },
+        {
+            id: 3,
+            page: config.routes.todo,
+            title: "Todo List",
+        },
+        {
+            id: 4,
+            page: config.routes.profile,
+            title: "Call API",
+        },
+    ];
+
     return (
         <header
             className={`fixed top-0 left-0 z-10 w-full bg-white transition-all ${
-                dark ? "dark:bg-[#01131e]" : ""
+                dark && "dark:bg-[#01131e]"
             }`}
         >
             <div className="w-[1170px] mx-auto">
@@ -17,59 +40,34 @@ const Header = ({ dark = false }) => {
                             to={config.routes.countdown}
                             className="flex items-center"
                         >
-                            <FCodeIcon></FCodeIcon>
-                            <span className="text-2xl font-bold text-[rgb(69,206,124)] leading-[]">
+                            <FCodeIcon />
+                            <span className="text-2xl font-bold text-primary">
                                 F-Code
                             </span>
                         </Link>
                     </div>
 
-                    <div className="">
-                        <nav>
-                            <ul className="flex items-center">
-                                <li>
-                                    <Link
-                                        to={config.routes.countdown}
-                                        className={`p-4 text-[#170F49] text-lg leading-[1.11111] transition-all ${
-                                            dark ? "dark:text-white" : ""
-                                        }`}
+                    <nav>
+                        <ul className="flex items-center">
+                            {links.map((link) => (
+                                <li key={link.id}>
+                                    <NavLink
+                                        to={link.page}
+                                        className={({ isActive }) =>
+                                            `p-4 text-[#170F49] text-lg leading-[1.11111] transition-all ${
+                                                dark && "dark:text-white"
+                                            } ${
+                                                isActive &&
+                                                "text-primary drop-shadow-sm"
+                                            }`
+                                        }
                                     >
-                                        Countdown
-                                    </Link>
+                                        {link.title}
+                                    </NavLink>
                                 </li>
-                                <li>
-                                    <Link
-                                        to={config.routes.form}
-                                        className={`p-4 text-[#170F49] text-lg leading-[1.11111] transition-all ${
-                                            dark ? "dark:text-white" : ""
-                                        }`}
-                                    >
-                                        Form
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        to={config.routes.todo}
-                                        className={`p-4 text-[#170F49] text-lg leading-[1.11111] transition-all ${
-                                            dark ? "dark:text-white" : ""
-                                        }`}
-                                    >
-                                        Todo List
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        to={config.routes.profile}
-                                        className={`p-4 text-[#170F49] text-lg leading-[1.11111] transition-all ${
-                                            dark ? "dark:text-white" : ""
-                                        }`}
-                                    >
-                                        Call API
-                                    </Link>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+                            ))}
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </header>

@@ -28,8 +28,8 @@ const CallAPI = () => {
 
     return (
         <>
-            <Header></Header>
-            <Skeleton></Skeleton>
+            <Header />
+            <Skeleton />
             <table className="content-table">
                 <thead>
                     <tr>
@@ -44,7 +44,7 @@ const CallAPI = () => {
                               <tr key={index}>
                                   {[...Array(3)].map((_, index) => (
                                       <td key={index}>
-                                          <Skeleton height="24px"></Skeleton>
+                                          <Skeleton height="24px" />
                                       </td>
                                   ))}
                               </tr>

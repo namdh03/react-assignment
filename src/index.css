@@ -88,4 +88,11 @@
         font-weight: bold;
         color: #009879;
     }
+
+    .text-line {
+        display: -webkit-box;
+        -webkit-line-clamp: var(--line-clamp, 1);
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
 }
