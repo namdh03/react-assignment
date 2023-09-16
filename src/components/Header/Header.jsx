@@ -58,7 +58,7 @@ const Header = ({ dark = false }) => {
                                                 dark && "dark:text-white"
                                             } ${
                                                 isActive &&
-                                                "text-primary drop-shadow-sm dark:text-primary"
+                                                "text-primary drop-shadow-sm dark:!text-primary"
                                             }`
                                         }
                                     >
